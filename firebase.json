@@ -1,0 +1,19 @@
+{
+  "hosting": {
+    "public": "dist/kanban-board-web-app/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [ 
+      {
+        "source": "**",
+        "run": {
+          "serviceId": "kanban-board-ssr",
+          "region": "asia-southeast1" 
+        }
+      }
+    ]
+  }
+}

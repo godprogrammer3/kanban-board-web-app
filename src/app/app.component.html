@@ -1,0 +1,172 @@
+<div *ngIf="isLoading" class="loading-overlay">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="main-page">
+  <mat-toolbar class="toolbar" color="primary">
+    <span>{{ title }}</span>
+  </mat-toolbar>
+
+  <div class="main-content-header">
+    <div class="main-content-header-item">
+      <div class="create-ticket-container" (click)="onTicketClick({ createStatus: 'Pending' })">
+        <span>Pending</span>
+        <mat-icon class="header-icon" aria-hidden="false" aria-label="create icon">add</mat-icon>
+      </div>
+      <div>
+        <span>{{pendingSortBy}}</span>
+        <mat-icon [ngClass]="{'header-icon':true, 'flip-vertical': pendingSortType == 'asc' }"
+          [matMenuTriggerFor]="menuPending" aria-hidden="false" aria-label="sort icon">sort
+        </mat-icon>
+      </div>
+
+      <mat-menu #menuPending="matMenu">
+        <button mat-menu-item (click)="onSortMenuClick('Pending', 'createdAt', 'asc')">
+          <mat-icon class="flip-vertical">sort</mat-icon>
+          <span>Sort ascending by created</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Pending', 'createdAt', 'desc')">
+          <mat-icon>sort</mat-icon>
+          <span>Sort descending by created</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Pending', 'updatedAt', 'asc')">
+          <mat-icon class="flip-vertical">sort</mat-icon>
+          <span>Sort ascending by updated</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Pending', 'updatedAt', 'desc')">
+          <mat-icon>sort</mat-icon>
+          <span>Sort descending by updated</span>
+        </button>
+      </mat-menu>
+    </div>
+    <span class="main-content-header-item">
+      <div class="create-ticket-container" (click)="onTicketClick({ createStatus: 'Accepted' })">
+        <span>Accepted</span>
+        <mat-icon class="header-icon" aria-hidden="false" aria-label="create icon">add</mat-icon>
+      </div>
+      <div>
+        <span>{{acceptedSortBy}}</span>
+        <mat-icon [ngClass]="{'header-icon':true, 'flip-vertical': acceptedSortType == 'asc' }"
+          [matMenuTriggerFor]="menuAccepted" aria-hidden="false" aria-label="sort icon">sort
+        </mat-icon>
+      </div>
+
+      <mat-menu #menuAccepted="matMenu">
+        <button mat-menu-item (click)="onSortMenuClick('Accepted', 'createdAt', 'asc')">
+          <mat-icon class="flip-vertical">sort</mat-icon>
+          <span>Sort ascending by created</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Accepted', 'createdAt', 'desc')">
+          <mat-icon>sort</mat-icon>
+          <span>Sort descending by created</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Accepted', 'updatedAt', 'asc')">
+          <mat-icon class="flip-vertical">sort</mat-icon>
+          <span>Sort ascending by updated</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Accepted', 'updatedAt', 'desc')">
+          <mat-icon>sort</mat-icon>
+          <span>Sort descending by updated</span>
+        </button>
+      </mat-menu>
+    </span>
+    <span class="main-content-header-item">
+      <div class="create-ticket-container" (click)="onTicketClick({ createStatus: 'Resolved' })">
+        <span>Resolved</span>
+        <mat-icon class="header-icon" aria-hidden="false" aria-label="create icon">add</mat-icon>
+      </div>
+      <div>
+        <span>{{resolvedSortBy}}</span>
+        <mat-icon [ngClass]="{'header-icon':true, 'flip-vertical': resolvedSortType == 'asc' }"
+          [matMenuTriggerFor]="menuResolved" aria-hidden="false" aria-label="sort icon">sort
+        </mat-icon>
+      </div>
+
+      <mat-menu #menuResolved="matMenu">
+        <button mat-menu-item (click)="onSortMenuClick('Resolved', 'createdAt', 'asc')">
+          <mat-icon class="flip-vertical">sort</mat-icon>
+          <span>Sort ascending by created</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Resolved', 'createdAt', 'desc')">
+          <mat-icon>sort</mat-icon>
+          <span>Sort descending by created</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Resolved', 'updatedAt', 'asc')">
+          <mat-icon class="flip-vertical">sort</mat-icon>
+          <span>Sort ascending by updated</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Resolved', 'updatedAt', 'desc')">
+          <mat-icon>sort</mat-icon>
+          <span>Sort descending by updated</span>
+        </button>
+      </mat-menu>
+    </span>
+    <span class="main-content-header-item">
+      <div class="create-ticket-container" (click)="onTicketClick({ createStatus: 'Rejected' })">
+        <span>Rejected</span>
+        <mat-icon class="header-icon" aria-hidden="false" aria-label="create icon">add</mat-icon>
+      </div>
+      <div>
+        <span>{{rejectedSortBy}}</span>
+        <mat-icon [ngClass]="{'header-icon':true, 'flip-vertical': rejectedSortType == 'asc' }"
+          [matMenuTriggerFor]="menuRejected" aria-hidden="false" aria-label="sort icon">sort
+        </mat-icon>
+      </div>
+
+      <mat-menu #menuRejected="matMenu">
+        <button mat-menu-item (click)="onSortMenuClick('Rejected', 'createdAt', 'asc')">
+          <mat-icon class="flip-vertical">sort</mat-icon>
+          <span>Sort ascending by created</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Rejected', 'createdAt', 'desc')">
+          <mat-icon>sort</mat-icon>
+          <span>Sort descending by created</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Rejected', 'updatedAt', 'asc')">
+          <mat-icon class="flip-vertical">sort</mat-icon>
+          <span>Sort ascending by updated</span>
+        </button>
+        <button mat-menu-item (click)="onSortMenuClick('Rejected', 'updatedAt', 'desc')">
+          <mat-icon>sort</mat-icon>
+          <span>Sort descending by updated</span>
+        </button>
+      </mat-menu>
+    </span>
+  </div>
+
+  <div class="main-content" cdkDropListGroup>
+    <div id="pendingContainer" class="main-content-column" cdkDropList [cdkDropListData]="pendingTickets"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let ticket of pendingTickets" class="ticket" cdkDrag>
+        <div class="custom-placeholder" *cdkDragPlaceholder></div>
+        <app-ticket [ticket]="ticket" [onClickTitle]="onTicketClick.bind(this)"></app-ticket>
+      </div>
+    </div>
+
+    <div id="acceptedContainer" class="main-content-column" cdkDropList [cdkDropListData]="acceptedTickets"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let ticket of acceptedTickets" class="ticket" cdkDrag>
+        <div class="custom-placeholder" *cdkDragPlaceholder></div>
+        <app-ticket [color]="'#fff176'" [ticket]="ticket" [onClickTitle]="onTicketClick.bind(this)"></app-ticket>
+      </div>
+    </div>
+
+    <div id="resolvedContainer" class="main-content-column" cdkDropList [cdkDropListData]="resolvedTickets"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let ticket of resolvedTickets" class="ticket" cdkDrag>
+        <div class="custom-placeholder" *cdkDragPlaceholder></div>
+        <app-ticket [color]="'#81c784'" [ticket]="ticket" [onClickTitle]="onTicketClick.bind(this)"></app-ticket>
+      </div>
+    </div>
+    <div id="rejectedContainer" class="main-content-column" cdkDropList [cdkDropListData]="rejectedTickets"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let ticket of rejectedTickets" class="ticket" cdkDrag>
+        <div class="custom-placeholder" *cdkDragPlaceholder></div>
+        <app-ticket [color]="'#ff8a65'" [ticket]="ticket" [onClickTitle]="onTicketClick.bind(this)"></app-ticket>
+      </div>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <footer>
+    <span>Developed by Godprogrammer</span>
+  </footer>
+</div>

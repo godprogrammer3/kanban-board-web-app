@@ -1,0 +1,22 @@
+<mat-card class="card" [ngStyle]="{ 'background-color': color }">
+  <div class="header">
+    <mat-card-title class="title" (click)="onClickTitle({ticket})">{{ ticket.title }}</mat-card-title>
+    <span>
+      <div class="mat-caption">
+        created {{ ticket.createdAt.format("DD/MM/YY HH:mm") }}
+      </div>
+      <div class="mat-caption">
+        updated {{ ticket.updatedAt.format("DD/MM/YY HH:mm") }}
+      </div>
+    </span>
+  </div>
+  <mat-divider inset></mat-divider>
+
+
+  <p class="description">
+    &nbsp;&nbsp;&nbsp;&nbsp;{{ticket.description }}
+  </p>
+
+  <mat-divider inset></mat-divider>
+  <mat-card-footer class="footer mat-caption"><strong>contact&nbsp;</strong>{{ ticket.contact }}</mat-card-footer>
+</mat-card>

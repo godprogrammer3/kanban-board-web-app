@@ -1,0 +1,26 @@
+mat-form-field {
+  width: 100%;
+}
+
+.sub-title {
+  display: flex;
+}
+
+.top-header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+
+.accepted-chip {
+  background-color: #fff176;
+}
+
+.resolved-chip {
+  background-color: #81c784;
+}
+
+.rejected-chip {
+  background-color: #ff8a65;
+}

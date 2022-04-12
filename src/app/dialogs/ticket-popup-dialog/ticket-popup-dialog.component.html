@@ -1,0 +1,38 @@
+<form [formGroup]="form">
+  <div class="top-header">
+    <mat-chip-list aria-label="status">
+      <mat-chip [ngClass]="chipClass">{{data.ticket?.status??'unknown'}}</mat-chip>
+    </mat-chip-list>
+  </div>
+
+  <h2 mat-dialog-title style="text-align: center;">Create Ticket</h2>
+  <mat-dialog-content>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Title" formControlName="title">
+        <mat-error *ngIf="form.controls['title'].invalid">{{'Please fill the value'}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Contact</mat-label>
+        <input matInput placeholder="Contact" formControlName="contact">
+        <mat-error *ngIf="form.controls['contact'].invalid">{{'Please fill the value'}}</mat-error>
+      </mat-form-field>
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea cdkTextareaAutosize matInput placeholder="Description" formControlName="description"></textarea>
+      <mat-error *ngIf="form.controls['description'].invalid">{{'Please fill the value'}}</mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onClose()">Cancel</button>
+
+    <button *ngIf="!data.ticket?.id" mat-button cdkFocusInitial (click)="onCreate()">Create</button>
+    <button *ngIf="data.ticket?.id" mat-button cdkFocusInitial (click)="onUpdate()">Update</button>
+  </mat-dialog-actions>
+</form>

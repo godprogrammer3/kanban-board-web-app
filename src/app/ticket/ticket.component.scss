@@ -1,0 +1,46 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.footer {
+  padding-left: 15px;
+  overflow-x: clip;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: start;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.title {
+  flex: 1;
+  text-align: left;
+  overflow-x: clip;
+  text-overflow: ellipsis;
+}
+
+.title:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.time-stamp {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.description {
+  width: 100%;
+  word-wrap: break-word;
+  text-align: start;
+}
